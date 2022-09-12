@@ -327,7 +327,7 @@ Be sure python 3.9 is installed on it. You can install miniconda and follow the 
      ```bash
      bash run_docker.sh
      ```
-3. If it was successful check the output of the file in the local folder.
+3. If it was successful check the output file and the model monitorin report is in the local folder.
 
 ## Disclaimer
 This is an academic exercise, merely for educational purposes.
