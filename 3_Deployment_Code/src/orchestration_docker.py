@@ -62,13 +62,20 @@ def save_train_test_data(
         y_train (pd.DataFrame): y train
         y_test (pd.DataFrame): y test
     """
-    preprocess.dump_pickle(
-        (X_train, y_train), os.path.join(preprocess.dest_path, "train.pkl")
-    )
-    preprocess.dump_pickle(
-        (X_test, y_test), os.path.join(preprocess.dest_path, "test.pkl")
-    )
-
+    try:
+        preprocess.dump_pickle(
+            (X_train, y_train), os.path.join(preprocess.dest_path, "train.pkl")
+        )
+        preprocess.dump_pickle(
+            (X_test, y_test), os.path.join(preprocess.dest_path, "test.pkl")
+        )
+    except:
+        preprocess.dump_pickle(
+            (X_train, y_train),  "train.pkl"
+        )
+        preprocess.dump_pickle(
+            (X_test, y_test), "test.pkl"
+        )
 
 def train_and_log_model(data_path: str) -> None:
     CTrain.train_and_log_model(data_path)

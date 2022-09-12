@@ -32,8 +32,12 @@ class Preprocess:
         os.makedirs(self.dest_path, exist_ok=True)
 
         # Save datasets
-        self.dump_pickle((X_train, y_train), os.path.join(self.dest_path, "train.pkl"))
-        self.dump_pickle((X_test, y_test), os.path.join(self.dest_path, "test.pkl"))
+        try:
+            self.dump_pickle((X_train, y_train), os.path.join(self.dest_path, "train.pkl"))
+            self.dump_pickle((X_test, y_test), os.path.join(self.dest_path, "test.pkl"))
+        except:
+            self.dump_pickle((X_train, y_train), "train.pkl")
+            self.dump_pickle((X_test, y_test), "test.pkl")
 
     def read_csv2dataframe(self) -> pd.DataFrame:
         """Read CSV dataframe

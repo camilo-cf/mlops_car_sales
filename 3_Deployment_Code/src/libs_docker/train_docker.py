@@ -87,8 +87,12 @@ def ModelLogisticRegression(X_train, y_train, X_test, y_test):
 
 
 def train_and_log_model(data_path):
-    X_train, y_train = load_pickle(os.path.join(data_path, "train.pkl"))
-    X_test, y_test = load_pickle(os.path.join(data_path, "test.pkl"))
+    try:
+        X_train, y_train = load_pickle(os.path.join(data_path, "train.pkl"))
+        X_test, y_test = load_pickle(os.path.join(data_path, "test.pkl"))
+    except:
+        X_train, y_train = load_pickle("train.pkl")
+        X_test, y_test = load_pickle("test.pkl")
     best_test_accuracy = 0.0
 
     # DecisionTreeClassifier
