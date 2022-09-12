@@ -184,10 +184,14 @@ For the model monitoring used Evidently (evidently==0.1.57.dev0) was used to tra
 ## 3.5 Best practices
 
 ### 3.5.1 Unit Tests
+- Not implemented
 
 ### 3.5.2 Integration Tests
+- Not implemented
 
 ### 3.5.3 Linting
+- `pylint` was used as a linter 
+- `black` was used as an autoformatter 
 
 ### 3.5.4 Makefile
 
