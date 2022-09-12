@@ -92,11 +92,7 @@ This project follows:
      - Workflow orchestration (Prefect)
      - Model Monitoring (Evidently)
      - Best practices
-          - Unit tests (???)
-          - Integration tests (???)
-          - Linting (TODO)
-          - Makefile (TODO)
-          - Pre-commit hooks (TODO)
+          - Linting
           - CI/CD (TODO)
 
      The configuration of the environment follows the configuration provided by the [requirements.txt](3_Deployment_Code/src/requirements.txt) provided in the `3_Deployment_Code/src/requirements.txt`.
