@@ -156,13 +156,13 @@ The **@flow** is the assembling of the tasks, in this case corresponds to `car_p
 The deployment of the current model takes an offline batch approach that can be triggered by a time based rule. Different approaches were taken for this step:
 1. **Cloud-based solution**:
 
-     a. **Load a model saved in the MLFlow model registry orchestrated by Prefect**: A local deployment of Prefect (as explained in section 2.2 **###### ADD LINK**) that orchestrates a deployment of the process, deploying the registered model (in a MLFlow server that can be in AWS or local as explained in section 3.1 **###### ADD LINK**).
+     a. **Load a model saved in the MLFlow model registry orchestrated by Prefect**: A local deployment of Prefect (as explained in [section 2.2](https://github.com/camilo-cf/mlops_car_sales#22-prefect-instance)) that orchestrates a deployment of the process, deploying the registered model (in a MLFlow server that can be in AWS or local as explained in [section 3.1](https://github.com/camilo-cf/mlops_car_sales#31-experiment-tracking-and-model-registry)).
      
      b. **Load a model stored in the VM local storage as .joblib model**: A Docker container in AWS ECR triggered by a time-based rule in AWS Lambda for the deployment of a model saved in the default model folder (./model/model.joblib).
 
 3.  **Local deployment**:
 
-     a. **Load a model saved in the MLFlow model registry orchestrated by Prefect**: A local deployment of Prefect (as explained in section 2.2 **###### ADD LINK**) that orchestrates a deployment of the process, deploying the registered model (in a MLFlow server that can be in AWS or local as explained in section 3.1 **###### ADD LINK**).
+     a. **Load a model saved in the MLFlow model registry orchestrated by Prefect**: A local deployment of Prefect (as explained in [section 2.2](https://github.com/camilo-cf/mlops_car_sales#22-prefect-instance)) that orchestrates a deployment of the process, deploying the registered model (in a MLFlow server that can be in AWS or local as explained in [section 3.1](https://github.com/camilo-cf/mlops_car_sales#31-experiment-tracking-and-model-registry)).
      
      b. **Load a model stored in the VM local storage as .joblib model**: A Docker container scheduled with a `cronjob` in a local machine for the deployment of a model saved in the default model folder (./model/model.joblib).
 
