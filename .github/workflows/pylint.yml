@@ -20,4 +20,4 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-        pylint --fail-under=8 --disable=import-error,wrong-import-position $(git ls-files '3_Deployment_Code/src/*.py')
+        pylint --fail-under=6 --disable=import-error,wrong-import-position $(git ls-files '3_Deployment_Code/src/*.py')
