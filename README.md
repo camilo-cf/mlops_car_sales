@@ -49,7 +49,7 @@ The tested VM were:
 - Azure Virtual machine (in a `D4pls v5`).
 
 The execution steps for the Prefect Instance should follow:
-1. Activation of local or remote MLFlow server (according to the section 3.1 of the present README) **###### ADD LINK**.
+1. Activation of local or remote MLFlow server (according to the section [3.1 of the present README](https://github.com/camilo-cf/mlops_car_sales#31-experiment-tracking-and-model-registry)).
 2. Execution of Prefect Orion (UI):
 
       `prefect orion start &` 
@@ -69,7 +69,7 @@ The execution steps for the Prefect Instance should follow:
 
      `prefect agent start 953962d2-2b7d-415d-be41-6643b60e8e75`
 
-**Note**: The execution process for each one of the deployment options will be detailed in the section 4 **###### ADD LINK**.
+**Note**: The execution process for each one of the deployment options will be detailed in the [section 4](https://github.com/camilo-cf/mlops_car_sales#4-reproducibility).
 
 # 3. MLOps approach to tackle the problem
 This project follows:
@@ -121,8 +121,6 @@ To execute the server locally it will be required to execute:
 
 Where `sqlite:///mlflow.db` is the sqlite3 database created to persist the backend in the local machine. This execution will allow a local backend storage (Experiment tracking), a local artifact storage (Experiment tracking) and a local artifact serving (usage of the Model Registry).
 
-**###### IMAGE of the experiment tracking**
-
 ### 3.1.2 AWS EC2 and AWS S3 Usage of MLFlow
 
 On the other hand, this was tested as well with a remote MLFlow server in AWS EC2 (in a VM `t2.micro`) with MLFlow and sqlite3 installled, persisting the backend storage locally in the EC2 VM and the artifact storage in an AWS S3 bucket. Executing:
@@ -142,8 +140,6 @@ This can be achieved also with a local environment variable, and its update.
 
 In the [1_modeling.ipynb notebook](2_ML_modeling/1_modeling.ipynb) under the `Test execution model from Model Registry` section is tested the prediction of the best obtained model (by accuracy) saved for a given experiment name, in a given `server_uri` (in the case localhost). This example executes the prediction on a sample of synthetic data (simulation of bank users).
 
-**###### IMAGE of the Model registry**
-
 ## 3.2 Workflow orchestration
 
 The workflow orchestration is achieved using **Prefect 2.2.0**. The *@tasks* of the orchestration are possible to observe on the file  [3_Deployment_Code/src/orchestration.py](3_Deployment_Code/src/orchestration.py). 
@@ -158,11 +154,7 @@ The main tasks are functions under the [3_Deployment_Code/src/orchestration.py](
 
 All the **@tasks** uses the **prefect logger** (*get_run_logger()*) to track the status and states of the execution and the obtained results.
 
-**###### IMAGE of the Prefect logger messages**
-
 The **@flow** is the assembling of the tasks, in this case corresponds to `car_purchase_prediction` function, where the **@tasks** are called in the right order as a **SequentialTaskRunner()**.
-
-**###### IMAGE of the Prefect flow diagram and others**
 
 ## 3.3 Model deployment
 The deployment of the current model takes an offline batch approach that can be triggered by a time based rule. Different approaches were taken for this step:
@@ -194,11 +186,13 @@ For the model monitoring used Evidently (evidently==0.1.57.dev0) was used to tra
 - `black` was used as an autoformatter 
 
 ### 3.5.4 Makefile
+- Not implemented
 
 ### 3.5.5 Pre-commit hooks
+- Not implemented
 
 ### 3.5.6 CI/CD
-
+A CI pipeline running in Github actions was implemented with pylint with a treshold of 6/10 to approve. The code is [here](.github/workflows/pylint.yml).
 
 # 4. Reproducibility
 
@@ -222,7 +216,7 @@ For the model monitoring used Evidently (evidently==0.1.57.dev0) was used to tra
 **Note:** Be sure you downloaded the dataset `car_data.csv` from [kaggle](https://www.kaggle.com/datasets/gabrielsantello/cars-purchase-decision-dataset?resource=download) and located it in `/data/car_data.csv` in the root project folder.
 
 # 4.2 ML Modeling
-1. Within the same virtual environment you created in the 4.1 section **###### ADD LINK**. Execute the `2_ML_modeling/0_create_fake_data.ipynb` notebook to create the synthetic data.
+1. Within the same virtual environment you created in the [4.1 section](https://github.com/camilo-cf/mlops_car_sales#41-exploratory-data-analysis). Execute the `2_ML_modeling/0_create_fake_data.ipynb` notebook to create the synthetic data.
 
 2. Now, run the `2_ML_modeling/1_modeling.ipynb` in the same virtual environment without the **Test execution model from Model Registry**. You can check the modeling process and the predition draft.
 
@@ -338,8 +332,6 @@ Be sure python 3.9 is installed on it. You can install miniconda and follow the 
      bash run_docker.sh
      ```
 3. If it was successful check the output of the file in the local folder.
-
-
 
 ## Disclaimer
 This is an academic exercise, merely for educational purposes.
