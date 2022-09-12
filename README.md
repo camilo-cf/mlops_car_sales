@@ -188,7 +188,9 @@ For the model monitoring used Evidently (evidently==0.1.57.dev0) was used to tra
 - Not implemented
 
 ### 3.5.6 CI/CD
-A CI pipeline running in Github actions was implemented with pylint with a treshold of 6/10 to approve. The code is [here](.github/workflows/pylint.yml).
+CI pipelines running in Github actions were implemented:
+- A pylint pipeline with a treshold of 6/10 to approve. The code is [here](.github/workflows/pylint.yml).
+- A sonarcloud pipeline. An example of its execution can be found [here](https://github.com/camilo-cf/mlops_car_sales/runs/8297300299).
 
 # 4. Reproducibility
 
