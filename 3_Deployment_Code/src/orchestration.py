@@ -78,10 +78,10 @@ def save_train_test_data(
     """
     get_run_logger().info("Saving test and train data in a local pkl")
     preprocess.dump_pickle(
-        (X_train, y_train), os.path.join(preprocess.dest_path, "train.pkl")
+        (X_train, y_train), "train.pkl"
     )
     preprocess.dump_pickle(
-        (X_test, y_test), os.path.join(preprocess.dest_path, "test.pkl")
+        (X_test, y_test), "test.pkl"
     )
 
 

@@ -35,6 +35,9 @@ class Preprocess:
         self.dump_pickle((X_train, y_train), os.path.join(self.dest_path, "train.pkl"))
         self.dump_pickle((X_test, y_test), os.path.join(self.dest_path, "test.pkl"))
 
+        self.dump_pickle((X_train, y_train), "train.pkl")
+        self.dump_pickle((X_test, y_test), "test.pkl")
+
     def read_csv2dataframe(self) -> pd.DataFrame:
         """Read CSV dataframe
 
